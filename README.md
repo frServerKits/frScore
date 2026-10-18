@@ -1,3 +1,6 @@
+> [!WARNING]  
+> This plugin was created using AI, so if you encounter any errors, please open an issue.
+
 # frScore
 
 A small, fast scoreboard plugin for **Paper** with a deliberately simple
