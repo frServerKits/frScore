@@ -1,0 +1,30 @@
+name: frScore
+version: '${version}'
+main: dev.frscore.FrScorePlugin
+api-version: '1.21'
+authors: [frank]
+description: Simple, fast, live-reloading scoreboards for Paper.
+website: https://github.com/frServerKits/frScore
+softdepend: [ PlaceholderAPI ]
+
+commands:
+  frscore:
+    description: Manage your frScore scoreboard.
+    usage: /frscore <toggle|reload|help>
+    aliases: [ fs, frboard ]
+    permission: frscore.use
+
+permissions:
+  frscore.use:
+    description: Allows using the /frscore command.
+    default: true
+  frscore.toggle:
+    description: Allows showing or hiding your own scoreboard.
+    default: true
+    children:
+      frscore.use: true
+  frscore.reload:
+    description: Allows reloading the configuration.
+    default: op
+    children:
+      frscore.use: true

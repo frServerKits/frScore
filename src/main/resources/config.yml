@@ -1,0 +1,71 @@
+# ──────────────────────────────────────────────────────────────────────────────
+#  frScore
+#
+#  A simple scoreboard plugin for Paper. Everything here can be edited while
+#  the server is running: save the file and it reloads automatically.
+#
+#  Formatting:
+#    • MiniMessage is supported: <green>, <bold>, <gradient:#34d399:#38bdf8>,
+#      <rainbow>, <#ff8800>, and so on.
+#    • Legacy codes also work: &a, &l, &r, &#ff8800 (and the § variants).
+#
+#  Placeholders:
+#    • PlaceholderAPI placeholders work out of the box: %player_name%, etc.
+#    • Built-in placeholders work even without PlaceholderAPI. See README.md.
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Master switch for the scoreboard. The plugin still loads when false.
+enabled: true
+
+# How often the scoreboard refreshes, in Minecraft ticks (20 = 1 second).
+update-interval: 20
+
+# Watch config.yml and apply changes automatically.
+auto-reload: true
+# How often to check the file, in ticks. 40 = every 2 seconds.
+auto-reload-check-interval: 40
+
+# Hide the red score numbers on the right side of the scoreboard.
+hide-numbers: true
+
+# Worlds where the scoreboard should not be displayed.
+# Example:
+# disabled-worlds:
+#   - world_nether
+disabled-worlds: []
+
+# The scoreboard title.
+title: "<gradient:#34d399:#38bdf8><bold>frScore</bold></gradient>"
+
+# Up to 15 lines. An empty string creates a blank line.
+lines:
+  - "<gray>Welcome, <white>%player_name%</white><gray>!"
+  - ""
+  - "<dark_gray>│ <gray>Ping: <#a7f3d0>%player_ping%ms"
+  - "<dark_gray>│ <gray>World: <#a7f3d0>%player_world%"
+  - "<dark_gray>│ <gray>Health: <#f87171>%player_health%<dark_gray>/<#fca5a5>%player_max_health%"
+  - ""
+  - "<dark_gray>│ <gray>Online: <#93c5fd>%server_online%<dark_gray>/<#bfdbfe>%server_max_players%"
+  - "<dark_gray>│ <gray>TPS: <#93c5fd>%server_tps%"
+  - ""
+  - "<dark_gray><strikethrough>                         "
+  - "<#64748b>play.example.net"
+
+# Command responses. MiniMessage and legacy colors both work.
+messages:
+  prefix: "<gradient:#34d399:#38bdf8><bold>frScore</bold></gradient> <dark_gray>»</dark_gray> "
+  reloaded: "<green>Configuration reloaded in <white>%time%</white>ms."
+  reload-failed: "<red>Could not reload the configuration. Check the console for details."
+  toggled-on: "<green>Your scoreboard is now visible."
+  toggled-off: "<gray>Your scoreboard is now hidden. Use <white>/frscore toggle</white> to show it again."
+  no-permission: "<red>You do not have permission to do that."
+  player-only: "<red>Only players can use that command."
+  unknown-command: "<red>Unknown subcommand. Use <white>/frscore help</white>."
+  world-disabled: "<yellow>Your scoreboard is hidden because it is disabled in this world."
+  help:
+    - "<dark_gray>─────────────────────────────"
+    - "<gradient:#34d399:#38bdf8><bold>frScore</bold></gradient> <dark_gray>v%version%"
+    - "<white>/frscore toggle <dark_gray>— <gray>Show or hide your scoreboard"
+    - "<white>/frscore reload <dark_gray>— <gray>Reload config.yml"
+    - "<white>/frscore help <dark_gray>— <gray>Show this help"
+    - "<dark_gray>─────────────────────────────"
